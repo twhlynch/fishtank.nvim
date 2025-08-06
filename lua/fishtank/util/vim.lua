@@ -27,4 +27,20 @@ M.getEditorSize = function()
     }
 end
 
+-- check if a window is open
+M.windowIsOpen = function(windowID)
+    if windowID == nil then
+        return false
+    end
+
+    -- check if the window ID appears in the list of all window IDs
+    for _, id in ipairs(vim.api.nvim_list_wins()) do
+        if id == windowID then
+            return true
+        end
+    end
+
+    return false
+end
+
 return M
