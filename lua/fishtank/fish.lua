@@ -97,7 +97,7 @@ end
 
 -- closes a fish's window
 function Fish:close()
-    if vimUtils.windowIsOpen(self.windowID) then
+    if vim.api.nvim_win_is_valid(self.windowID) then
         vim.api.nvim_win_close(self.windowID, true)
     end
 
